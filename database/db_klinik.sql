@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 12 Jul 2022 pada 13.44
+-- Waktu pembuatan: 14 Jul 2022 pada 12.58
 -- Versi server: 5.7.33
 -- Versi PHP: 7.4.19
 
@@ -96,15 +96,15 @@ INSERT INTO `obat` (`id`, `nama_obat`, `keterangan`, `created_at`, `updated_at`,
 
 CREATE TABLE `pasien` (
   `id` int(11) NOT NULL,
-  `nomor_identitas` varchar(30) DEFAULT NULL,
+  `kode_daftar` varchar(30) DEFAULT NULL,
   `nama_pasien` varchar(128) NOT NULL,
   `jenis_kelamin` char(1) DEFAULT NULL,
-  `alamat` text NOT NULL,
-  `telephone` varchar(16) DEFAULT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `tgl_daftar` date NOT NULL,
+  `keluhan` varchar(50) NOT NULL,
+  `jadwal_periksa` date NOT NULL,
+  `created_by` int(11) NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `deleted_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -113,10 +113,10 @@ CREATE TABLE `pasien` (
 -- Dumping data untuk tabel `pasien`
 --
 
-INSERT INTO `pasien` (`id`, `nomor_identitas`, `nama_pasien`, `jenis_kelamin`, `alamat`, `telephone`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
-(4, '32150823949224', 'Bagas Arya', 'l', 'Kota Depok', '081285711519', '2022-07-12 15:17:53', '2022-07-12 08:32:21', '2022-07-12 08:17:07', NULL, 1, NULL),
-(6, '15082006', 'Afra', 'p', 'Depok', '08989', '2022-07-12 09:12:00', '2022-07-12 13:42:28', NULL, 1, 1, NULL),
-(8, '15082000', 'Rima', 'p', 'Depok', '0812', '2022-07-12 13:42:42', NULL, NULL, 1, NULL, NULL);
+INSERT INTO `pasien` (`id`, `kode_daftar`, `nama_pasien`, `jenis_kelamin`, `tgl_daftar`, `keluhan`, `jadwal_periksa`, `created_by`, `updated_at`, `deleted_at`, `updated_by`, `deleted_by`) VALUES
+(1, '001', 'Bagas', 'l', '2022-07-14', 'Flue', '2022-07-15', 0, '2022-07-14 10:50:49', '2022-07-14 10:50:49', NULL, NULL),
+(2, '002', 'Rima Herliana', 'p', '2022-07-14', 'Meriang, Pilek', '2022-07-16', 1, '2022-07-14 12:18:51', NULL, 1, NULL),
+(3, '003', 'Afra', 'p', '2022-07-14', 'Pusing', '2022-07-17', 1, '2022-07-14 12:18:59', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -144,8 +144,8 @@ CREATE TABLE `rekam_medis` (
 --
 
 INSERT INTO `rekam_medis` (`id`, `pasien_id`, `dokter_id`, `keluhan`, `diagnosa`, `tanggal`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `deleted_by`) VALUES
-(1, 4, 3, 'Lemas Seharian', 'Butuh Ayang', '2022-07-12', '2022-07-12 13:39:43', NULL, NULL, 1, NULL, NULL),
-(2, 8, 4, 'Pusing Seharian', 'Codingan Error', '2022-07-12', '2022-07-12 13:43:50', NULL, NULL, 1, NULL, NULL);
+(2, 8, 4, 'Pusing Seharian', 'Codingan Error', '2022-07-12', '2022-07-12 13:43:50', NULL, NULL, 1, NULL, NULL),
+(3, 1, 4, 'test', 'tes', '2022-07-14', '2022-07-14 11:00:12', NULL, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -164,8 +164,8 @@ CREATE TABLE `rm_obat` (
 --
 
 INSERT INTO `rm_obat` (`id`, `obat_id`, `rm_id`) VALUES
-(3, 3, 1),
-(4, 1, 2);
+(4, 1, 2),
+(5, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -299,25 +299,25 @@ ALTER TABLE `obat`
 -- AUTO_INCREMENT untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `rekam_medis`
 --
 ALTER TABLE `rekam_medis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `rm_obat`
 --
 ALTER TABLE `rm_obat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `ruang`
 --
 ALTER TABLE `ruang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

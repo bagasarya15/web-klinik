@@ -16,7 +16,7 @@ $pasien = get_where("SELECT * FROM pasien WHERE id = '$id' ");
     <div class="col-md-12 col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Edit Pasien</h4>
+          <h4 class="card-title">Edit Pendaftaran</h4>
         </div>
         <div class="card-content">
           <div class="card-body">
@@ -28,11 +28,10 @@ $pasien = get_where("SELECT * FROM pasien WHERE id = '$id' ");
                   <div class="col-12">
                     <div class="form-group row">
                       <div class="col-md-4">
-                        <label>Nomor Identitas</label>
+                        <label>Kode Pendaftaran</label>
                       </div>
                       <div class="col-md-8">
-
-                        <input type="text" placeholder="Nomor Identitas" class="form-control" name="nomor_identitas" value="<?= $pasien['nomor_identitas']; ?>">
+                        <input type="text" placeholder="Kode Daftar" class="form-control" name="kode_daftar" value="<?=$pasien['kode_daftar'] ?>" required>
                       </div>
                     </div>
                   </div>
@@ -40,37 +39,15 @@ $pasien = get_where("SELECT * FROM pasien WHERE id = '$id' ");
                   <div class="col-12">
                     <div class="form-group row">
                       <div class="col-md-4">
-                        <label>Nama </label>
+                        <label>Nama</label>
                       </div>
                       <div class="col-md-8">
-                        <input type="text" placeholder="Nama Pasien" class="form-control" name="nama_pasien" value="<?= $pasien['nama_pasien']; ?>">
+                        <input type="text" placeholder="Nama Pasien" class="form-control" name="nama_pasien" value="<?=$pasien['nama_pasien'] ?>" required>
                       </div>
                     </div>
                   </div>
 
-                  <div class="col-12">
-                    <div class="form-group row">
-                      <div class="col-md-4">
-                        <label>Nomor Hp</label>
-                      </div>
-                      <div class="col-md-8">
-                        <input type="text" placeholder="Nomor Hp" class="form-control" name="telephone" value="<?= $pasien['telephone']; ?>">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="form-group row">
-                      <div class="col-md-4">
-                        <label>Alamat</label>
-                      </div>
-                      <div class="col-md-8">
-                        <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Alamat" name="alamat"><?= $pasien['alamat']; ?></textarea>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
+                   <div class="col-12">
                     <div class="form-group row">
                       <div class="col-md-4">
                         <label>Jenis Kelamin</label>
@@ -92,7 +69,7 @@ $pasien = get_where("SELECT * FROM pasien WHERE id = '$id' ");
                           <li class="d-inline-block mr-2">
                             <fieldset>
                               <div class="vs-radio-con">
-                                <input type="radio" name="jenis_kelamin" <?= ($pasien['jenis_kelamin'] == 'p' ? 'checked' : ''); ?> value="p">
+                                 <input type="radio" name="jenis_kelamin" <?= ($pasien['jenis_kelamin'] == 'p' ? 'checked' : ''); ?> value="p">
                                 <span class="vs-radio">
                                   <span class="vs-radio--border"></span>
                                   <span class="vs-radio--circle"></span>
@@ -103,7 +80,39 @@ $pasien = get_where("SELECT * FROM pasien WHERE id = '$id' ");
                           </li>
                         </ul>
                       </div>
+                    </div>
+                  </div>
 
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>Tanggal Daftar</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="text" name="tgl_daftar" value="<?= date('Y-m-d'); ?>" readonly class="form-control">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>Keluhan</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="text" name="keluhan" class="form-control" placeholder="Keluhan" value="<?= $pasien['keluhan'] ?>"> 
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>Jadwal Periksa</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="date" name="jadwal_periksa" class="form-control" value="<?= $pasien['jadwal_periksa'] ?>">
+                      </div>
                     </div>
                   </div>
 

@@ -4,7 +4,7 @@ $pasiens = get("SELECT * FROM pasien");
 
 $no = 1;
 
-$title = 'pasien';
+$title = 'Pendaftaran Pasien';
 ?>
 
 <!-- User Table -->
@@ -13,9 +13,9 @@ $title = 'pasien';
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Pasien</h4>
+          <h4 class="card-title"><?= $title  ?></h4>
           <a href="?page=tambah-pasien" class="btn btn-primary round waves-effect waves-light">
-            Tambah Pasien
+            Tambah Pendaftaran Pasien
           </a>
         </div>
         <div class="card-content">
@@ -24,23 +24,27 @@ $title = 'pasien';
               <table class="table table-striped dataex-html5-selectors">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>Kode Pendaftaran</th>
                     <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Nomor Telepon</th>
                     <th>Jenis Kelamin</th>
+                    <th>Tanggal Daftar</th>
+                    <th>Keluhan</th>
+                    <th>Jadwal Periksa</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($pasiens as $pasien) : ?>
                     <tr>
-                      <td><?= $no++ ?></td>
+                      <td><?= $pasien['kode_daftar'] ?></td>
                       <td><?= $pasien['nama_pasien']; ?></td>
-                      <td><?= $pasien['alamat']; ?></td>
-                      <td><?= $pasien['telephone']; ?></td>
                       <td><?= ($pasien['jenis_kelamin'] == 'l' ? 'Laki-laki' : 'Perempuan'); ?></td>
+                      <td><?= $pasien['tgl_daftar']; ?></td>
+                      <td><?= $pasien['keluhan']; ?></td>
+                      <td><?= $pasien['jadwal_periksa']; ?></td>
+                      
                       <td>
+                        <a href="?page=detail-pasien&id=<?= $pasien['id']; ?>"><i class="feather icon-eye"></i></a>
                         <a href="?page=edit-pasien&id=<?= $pasien['id']; ?>"><i class="m-1 feather icon-edit-2"></i></a>
                         <a href="?page=hapus-pasien&id=<?= $pasien['id']; ?>" class="btn-hapus">
                           <i class="feather icon-trash"></i>
@@ -58,4 +62,4 @@ $title = 'pasien';
   </div>
 </section>
 <!-- User Table -->
-<?php $title = 'pasien'; ?>
+<!-- <?php $title = 'Pendaftaran Pasien'; ?> -->

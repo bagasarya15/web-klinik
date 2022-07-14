@@ -23,7 +23,7 @@ if (!isset($_SESSION['user'])) {
   <meta name="keywords" content="admin template, Vuesax admin template, dashboard template, flat admin template, responsive admin template, web app">
   <meta name="author" content="PIXINVENT">
   <title><?= (isset($_SESSION['title']) ? $_SESSION['title'] : 'Admin'); ?></title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="assets/vendors/css/vendors.min.css">
 
   <?php if (isset($prepend_style)) : ?>

@@ -26,6 +26,9 @@ if (isset($_GET['page'])) {
 		case 'hapus-pasien':
 			require_once 'app/pasien/proses/delete.php';
 			break;
+		case 'detail-pasien':
+			require_once 'app/pasien/views/detail.php';
+			break;
 		case 'obat':
 			require_once 'app/obat/views/index.php';
 			break;

@@ -9,57 +9,37 @@
     <div class="col-md-12 col-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Tambah Pasien</h4>
+          <h4 class="card-title">Tambah Pendaftaran</h4>
         </div>
         <div class="card-content">
           <div class="card-body">
             <form action="app/pasien/proses/create.php" method="post">
               <div class="form-body">
                 <div class="row">
+
                   <div class="col-12">
                     <div class="form-group row">
                       <div class="col-md-4">
-                        <label>Nomor Identitas</label>
+                        <label>Kode Pendaftaran</label>
                       </div>
                       <div class="col-md-8">
-
-                        <input type="text" placeholder="Nomor Identitas" class="form-control" name="nomor_identitas">
+                        <input type="text" placeholder="Kode Daftar" class="form-control" name="kode_daftar" required>
                       </div>
                     </div>
                   </div>
+
                   <div class="col-12">
                     <div class="form-group row">
                       <div class="col-md-4">
                         <label>Nama</label>
                       </div>
                       <div class="col-md-8">
-
                         <input type="text" placeholder="Nama Pasien" class="form-control" name="nama_pasien" required>
                       </div>
                     </div>
                   </div>
-                  <div class="col-12">
-                    <div class="form-group row">
-                      <div class="col-md-4">
-                        <label>Nomor Hp</label>
-                      </div>
-                      <div class="col-md-8">
-                        <input type="text" placeholder="Nomor Hp" class="form-control" name="telephone">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group row">
-                      <div class="col-md-4">
-                        <label>Alamat</label>
-                      </div>
-                      <div class="col-md-8">
-                        <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Alamat" name="alamat" required></textarea>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="col-12">
+                   <div class="col-12">
                     <div class="form-group row">
                       <div class="col-md-4">
                         <label>Jenis Kelamin</label>
@@ -92,7 +72,39 @@
                           </li>
                         </ul>
                       </div>
+                    </div>
+                  </div>
 
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>Tanggal Daftar</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="text" name="tgl_daftar" value="<?= date('Y-m-d'); ?>" readonly class="form-control">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>Keluhan</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="text" name="keluhan" class="form-control" placeholder="Keluhan">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group row">
+                      <div class="col-md-4">
+                        <label>Jadwal Periksa</label>
+                      </div>
+                      <div class="col-md-8">
+                        <input type="date" name="jadwal_periksa" class="form-control">
+                      </div>
                     </div>
                   </div>
 

@@ -3,7 +3,7 @@ session_start();
 require_once '../functions/MY_model.php';
 require_once '../functions/config.php';
 
-$url = 'http://localhost:8080/PI2/klinikdrhardhi/';
+$url = 'http://localhost/klinikdrhardhi/index.php'; 
 if (isset($_SESSION['user'])) {
   echo '<script>document.location.href="' . $url . '"</script>';
   exit;
@@ -95,7 +95,7 @@ if (isset($_POST['login'])) {
                     <p class="px-2">Welcome back, please login to your account.</p>
                     <div class="card-content">
                       <div class="card-body pt-1">
-                        <form action="" method="post">
+                        <form action="" method="POST">
                           <fieldset class="form-label-group form-group position-relative has-icon-left">
                             <input type="text" name="username" class="form-control" id="user-name" placeholder="Username" required>
                             <div class="form-control-position">
