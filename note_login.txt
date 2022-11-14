@@ -1,0 +1,18 @@
+Login Username & Password
+=========================
+Role Admin
+Username : admin
+Password : klinikhardhi
+=========================
+Role Dokter
+Username :dokter
+Password :klinikhardhi
+=========================
+Role Resepsionis
+Username :resepsionis
+Password :klinikhardhi
+=========================
+Role Apoteker
+Username :apoteker
+Password :klinikhardhi
+=========================
